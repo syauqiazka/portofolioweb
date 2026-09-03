@@ -58,7 +58,7 @@ export default function DayToNightBackground({ isReversed, smoothProgress }: Bac
         </div>
 
         {/* Bintang-bintang */}
-        <div className="absolute inset-0 bg-[radial-gradient(#opacity-80_1px,transparent_1px)] [background-size:32px_32px] opacity-30" />
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.5)_1px,transparent_1px)] [background-size:32px_32px] opacity-30" />
         <div className="absolute bottom-0 inset-x-0 h-64 bg-gradient-to-t from-[#04060d] to-transparent" />
       </motion.div>
     </>
