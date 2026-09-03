@@ -1,20 +1,14 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Space_Grotesk, DM_Serif_Display, JetBrains_Mono } from "next/font/google";
+import { Inter, DM_Serif_Display, IBM_Plex_Mono } from "next/font/google";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import { ThemeProvider } from "@/context/ThemeContext";
 import Navbar from "@/components/Navbar";
 import ScrollProgress from "@/components/ScrollProgress";
 import "./globals.css";
 
-const plusJakarta = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
-  weight: ["400", "500", "600", "700"],
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-heading",
   weight: ["400", "500", "600", "700"],
 });
 
@@ -24,14 +18,14 @@ const dmSerif = DM_Serif_Display({
   weight: ["400"],
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
-  title: "M. Syauqi Azka — Product Designer & Developer",
+  title: "M. Syauqi Azka — Data Engginer Anthusiast | Portfolio",
   description:
     "Portfolio interaktif terinspirasi dari Zainab Kabira — creative development, editorial typography, dan curated digital crafts.",
 };
@@ -44,11 +38,11 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${plusJakarta.variable} ${spaceGrotesk.variable} ${dmSerif.variable} ${jetbrainsMono.variable}`}
+      className={`${inter.variable} ${dmSerif.variable} ${ibmPlexMono.variable}`}
       suppressHydrationWarning
     >
       <body
-        className="font-sans antialiased selection:bg-amber-400 selection:text-zinc-900 overflow-x-hidden grain min-h-screen"
+        className="font-sans antialiased selection:bg-amber-400 selection:text-zinc-900 overflow-x-hidden grain min-h-screen bg-zinc-950"
         suppressHydrationWarning
       >
         <ThemeProvider>

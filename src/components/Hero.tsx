@@ -8,7 +8,7 @@ interface HeroProps {
   isDarkTheme: boolean;
 }
 
-const ROLLING_WORDS = ["Analyzes", "Pipelines", "Visualizes", "Engineers"];
+const ROLLING_WORDS = ["Builds", "Creates", "Innovates", "Pipelines", "Automates", "Analyzes", "Optimizes", "Delivers"];
 
 export default function Hero({ isDarkTheme }: HeroProps) {
   const [wordIndex, setWordIndex] = useState(0);
@@ -36,7 +36,7 @@ export default function Hero({ isDarkTheme }: HeroProps) {
     let interval: NodeJS.Timeout;
     if (isPlaying) {
       interval = setInterval(() => {
-        setPlaybackSec((prev) => (prev >= 83 ? 0 : prev + 1));
+        setPlaybackSec((prev) => (prev >= 120 ? 0 : prev + 1));
       }, 1000);
     }
     return () => clearInterval(interval);
@@ -89,7 +89,7 @@ export default function Hero({ isDarkTheme }: HeroProps) {
     return `${m}:${s < 10 ? "0" : ""}${s}`;
   };
 
-  // Helper to split text into interactive hoverable letters
+  // Helper to split text into letters
   const renderInteractiveWord = (word: string, highlightI: boolean = false) => {
     return word.split("").map((letter, i) => {
       if (letter === " ") {
@@ -103,8 +103,7 @@ export default function Hero({ isDarkTheme }: HeroProps) {
         return (
           <span
             key={i}
-            className="h-letter relative inline-block text-amber-300 font-serif"
-            style={{ willChange: "transform" }}
+            className="h-letter-static relative inline-block text-amber-300 font-serif"
           >
             {letter}
             <span className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
@@ -115,9 +114,8 @@ export default function Hero({ isDarkTheme }: HeroProps) {
         <span
           key={i}
           className={`h-letter inline-block font-serif ${
-            isDarkTheme ? "text-[#fff9e9]" : "text-white drop-shadow-sm"
+            isDarkTheme ? "text-[#fff9e9]" : "text-white"
           }`}
-          style={{ willChange: "transform" }}
         >
           {letter}
         </span>
@@ -295,19 +293,19 @@ export default function Hero({ isDarkTheme }: HeroProps) {
           }`}
         >
           <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-[0_0_12px_#22d3ee] animate-pulse" />
-          <span>HELLO, I'M M. SYAUQI AZKA. A —</span>
+          <span>HELLO, I'M M. SYAUQI AZKA. A –</span>
         </motion.div>
 
         {/* ── MAIN EDITORIAL TITLE WITH PER-LETTER HOVER TILT ── */}
-        <div className="space-y-3 sm:space-y-4 select-none mb-6 sm:mb-8">
+        <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
           {/* LINE 1: Designer who */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8rem] font-serif font-normal tracking-tight leading-[1.05]"
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8rem] font-serif leading-[1.1]"
           >
-            {renderInteractiveWord("Data Engineer who", true)}
+            {renderInteractiveWord("Data Enginner who", true)}
           </motion.div>
 
           {/* LINE 2: [Cassette Recorder] + [Rolling Word] */}
@@ -316,8 +314,9 @@ export default function Hero({ isDarkTheme }: HeroProps) {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
+              whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className={`relative rounded-full p-2.5 sm:p-3 shadow-[0_12px_28px_rgba(0,0,0,0.4),inset_0_2px_4px_rgba(255,255,255,0.8),inset_0_-2px_4px_rgba(0,0,0,0.15)] border flex items-center gap-3 sm:gap-4 shrink-0 max-w-xs sm:max-w-md select-none transition-colors duration-700 ${
+              className={`relative rounded-full p-2.5 sm:p-3 shadow-[0_12px_28px_rgba(0,0,0,0.4),inset_0_2px_4px_rgba(255,255,255,0.8),inset_0_-2px_4px_rgba(0,0,0,0.15)] border flex items-center gap-3 sm:gap-4 shrink-0 max-w-xs sm:max-w-md cursor-pointer transition-all duration-700 ${
                 isDarkTheme
                   ? "bg-gradient-to-b from-[#dfdcd5] to-[#c7c4bb] border-[#a5a39a]"
                   : "bg-gradient-to-b from-[#ffffff] to-[#ede9dc] border-[#e2dccf]"
@@ -325,7 +324,7 @@ export default function Hero({ isDarkTheme }: HeroProps) {
             >
               {/* Left Vinyl Reel */}
               <div
-                className={`relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-tr from-zinc-950 via-zinc-800 to-zinc-950 border-2 border-[#3d3b37] shadow-inner overflow-hidden flex items-center justify-center shrink-0 ${
+                className={`relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-tr from-zinc-950 via-zinc-800 to-zinc-950 border-2 border-[#3d3b37] shadow-inner overflow-hidden flex items-center justify-center shrink-0 transition-transform hover:scale-110 cursor-pointer ${
                   isPlaying ? "reel-spinning" : ""
                 }`}
               >
@@ -338,25 +337,32 @@ export default function Hero({ isDarkTheme }: HeroProps) {
               {/* Center Control & Slider */}
               <div className="flex flex-col items-center justify-center flex-1 min-w-[120px] sm:min-w-[150px]">
                 <div className="w-full text-center text-[9px] sm:text-[10px] font-mono text-zinc-800 font-semibold tracking-tight truncate mb-1">
-                  My data journey, engineered
+                  My Project journey, rapped
                 </div>
 
                 {/* Scrubber Bar */}
-                <div className="relative w-full h-2.5 bg-[#66625d] rounded-full shadow-[inset_0_1px_3px_rgba(0,0,0,0.6)] overflow-hidden cursor-pointer">
+                <div 
+                  className="relative w-full h-2.5 bg-[#66625d] rounded-full shadow-[inset_0_1px_3px_rgba(0,0,0,0.6)] overflow-hidden cursor-pointer hover:bg-[#555150] transition-colors"
+                  onClick={() => {
+                    // Allow users to click on the progress bar
+                    const newPercent = Math.random() * 100;
+                    setPlaybackSec(Math.floor((newPercent / 100) * 120));
+                  }}
+                >
                   <div
                     className="absolute left-0 top-0 bottom-0 bg-amber-400 transition-all duration-300 rounded-full"
-                    style={{ width: `${(playbackSec / 83) * 100}%` }}
+                    style={{ width: `${(playbackSec / 120) * 100}%` }}
                   />
                   <div
                     className="absolute top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-white border border-zinc-300 shadow-md transition-all duration-300"
-                    style={{ left: `calc(${(playbackSec / 83) * 100}% - 7px)` }}
+                    style={{ left: `calc(${(playbackSec / 120) * 100}% - 7px)` }}
                   />
                 </div>
 
                 {/* Timestamps */}
                 <div className="w-full flex justify-between text-[9px] font-mono text-zinc-700 font-medium mt-1">
                   <span>{formatTime(playbackSec)}</span>
-                  <span>1:23</span>
+                  <span>2:00</span>
                 </div>
               </div>
 
@@ -375,7 +381,7 @@ export default function Hero({ isDarkTheme }: HeroProps) {
 
               {/* Right Vinyl Reel */}
               <div
-                className={`relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-tr from-zinc-950 via-zinc-800 to-zinc-950 border-2 border-[#3d3b37] shadow-inner overflow-hidden flex items-center justify-center shrink-0 ${
+                className={`relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-tr from-zinc-950 via-zinc-800 to-zinc-950 border-2 border-[#3d3b37] shadow-inner overflow-hidden flex items-center justify-center shrink-0 transition-transform hover:scale-110 cursor-pointer ${
                   isPlaying ? "reel-spinning" : ""
                 }`}
               >
@@ -387,7 +393,7 @@ export default function Hero({ isDarkTheme }: HeroProps) {
             </motion.div>
 
             {/* Rolling Word (Solves / Builds / Crafts / Codes) */}
-            <div className="relative text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8rem] font-serif font-normal tracking-tight leading-[1.05] overflow-hidden py-1">
+            <div className="relative text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8rem] font-serif leading-[1.1] overflow-hidden py-1">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={ROLLING_WORDS[wordIndex]}
@@ -396,7 +402,7 @@ export default function Hero({ isDarkTheme }: HeroProps) {
                   exit={{ y: "-80%", opacity: 0 }}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  {renderInteractiveWord(ROLLING_WORDS[wordIndex])}
+                  {renderInteractiveWord(ROLLING_WORDS[wordIndex], true)}
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -412,8 +418,8 @@ export default function Hero({ isDarkTheme }: HeroProps) {
             isDarkTheme ? "text-[#fff9e9]/80" : "text-white font-medium drop-shadow-sm"
           }`}
         >
-          Independent product designer & creative engineer. Merancang pengalaman digital yang
-          presisi, intuitif, dan dibangun dari konsep awal hingga baris kode produksi.
+          Six years across architecture and product Data Enginner, Cihuy what's next – from data
+          engineering to shipping AI experiences.
         </motion.p>
 
         {/* Action Buttons */}
