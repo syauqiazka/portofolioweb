@@ -2,11 +2,10 @@
 
 import { useScroll, useSpring } from "framer-motion";
 import DayToNightBackground from "@/components/DayToNightBackground";
-import Hero from "@/components/Hero";
+import HeroGSAP from "@/components/HeroGSAP";
 import IntroStrip from "@/components/IntroStrip";
 import LandscapeDivider from "@/components/LandscapeDivider";
 import Projects from "@/components/Projects";
-import Testimonials from "@/components/Testimonials";
 import ExploreBanners from "@/components/home/ExploreBanners";
 import Footer from "@/components/Footer";
 import { useTheme } from "@/context/ThemeContext";
@@ -36,7 +35,7 @@ export default function WorkPage() {
       {/* Main Content: Work & Projects */}
       <main>
         {/* Atas: Hero & Intro */}
-        <Hero isDarkTheme={isTopDark} />
+        <HeroGSAP isDarkTheme={isTopDark} />
         <IntroStrip isDarkTheme={isTopDark} />
 
         {/* Botanical Landscape Transition Band (Day / Night Dynamic) */}
@@ -48,9 +47,6 @@ export default function WorkPage() {
         <div id="work">
           <Projects isDarkTheme={true} />
         </div>
-
-        {/* Testimonials & Social Proof */}
-        <Testimonials isDarkTheme={true} />
 
         {/* Explore More Pages: About & Playground Navigation Banner */}
         <ExploreBanners isBottomDark={isBottomDark} />

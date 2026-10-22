@@ -25,9 +25,9 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "M. Syauqi Azka — Data Engginer Anthusiast | Portfolio",
+  title: "M. Syauqi Azka — Data Engineer Portfolio",
   description:
-    "Portfolio interaktif terinspirasi dari Zainab Kabira — creative development, editorial typography, dan curated digital crafts.",
+    "Data Engineer portfolio — pipelines, ML models, analytics systems, and data warehousing solutions.",
 };
 
 export default function RootLayout({

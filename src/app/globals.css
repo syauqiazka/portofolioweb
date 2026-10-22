@@ -5,6 +5,17 @@
     scroll-behavior: smooth;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   body {
     font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     transition: color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -15,6 +26,21 @@
     font-family: var(--font-serif), 'Georgia', serif;
     font-weight: 400;
     letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  /* Typography scale */
+  :root {
+    --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+    --text-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+    --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --text-lg: clamp(1.125rem, 1rem + 0.625vw, 1.5rem);
+    --text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.875rem);
+    --text-2xl: clamp(1.5rem, 1.3rem + 1vw, 2.25rem);
+    --text-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 3rem);
+    --text-4xl: clamp(2.25rem, 1.75rem + 2.5vw, 3.75rem);
+    --text-5xl: clamp(3rem, 2rem + 5vw, 5rem);
+    --text-6xl: clamp(3.75rem, 2.5rem + 6.25vw, 6rem);
   }
 }
 

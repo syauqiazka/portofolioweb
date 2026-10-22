@@ -305,7 +305,7 @@ export default function Hero({ isDarkTheme }: HeroProps) {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8rem] font-serif leading-[1.1]"
           >
-            {renderInteractiveWord("Data Enginner who", true)}
+            {renderInteractiveWord("Data Engineer who", true)}
           </motion.div>
 
           {/* LINE 2: [Cassette Recorder] + [Rolling Word] */}
@@ -418,8 +418,7 @@ export default function Hero({ isDarkTheme }: HeroProps) {
             isDarkTheme ? "text-[#fff9e9]/80" : "text-white font-medium drop-shadow-sm"
           }`}
         >
-          Six years across architecture and product Data Enginner, Cihuy what's next – from data
-          engineering to shipping AI experiences.
+          Building data pipelines, ML models, and analytics systems that turn raw data into actionable insights for businesses.
         </motion.p>
 
         {/* Action Buttons */}
